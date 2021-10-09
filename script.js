@@ -27,11 +27,14 @@ switch(lang) {
 
 
 
-const lang2 = [
-  ['en', 'ru']
-];
-console.log(lang2[0][0]);
-console.log(lang2[0][1]);
+let map = new Map([
+  ['ru', 'понедельник, вторник среда, четверг, пятница, суббота, воскресенье'],
+  ['en', 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday']
+]);
+
+
+console.log(map.get('ru') );
+console.log(map.get('en') );
 
 
 // 2 задание
