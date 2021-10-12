@@ -8,7 +8,7 @@ function getWord() {
     
   }
 
-  return str.trim() + str.slice(0, 30) + '...';
+  return str.trim().slice(0, 30) + '...';
 
 }
 
