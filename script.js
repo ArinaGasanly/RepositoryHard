@@ -1,15 +1,25 @@
-function getWord() {
+// 1 задание
+const arr = ["216938", "443011", "28738238923", "4967164", "48309787", "28738538923", "26767162"];
 
-  let str = ' JavaScript is a text-based programming language used both on the client-side and server-side that allows you to make web pages interactive. ';
-  if (typeof str === 'string' || str instanceof String) {
-    console.log('Variable is a string');
-  } else {
-    console.log('Variable is not a string');
-    
+const filterValues = (digit) => {
+  return arr.filter(data => {
+    return data.indexOf(digit) > -1;
+  });
+}
+console.log(filterValues('4','2'));
+
+
+// 2 задание
+
+let n = 100;
+
+isPrime:
+for (let i = 2; i <= n; i++) { 
+
+  for (let j = 2; j < i; j++) { 
+    if (i % j == 0) continue isPrime; 
   }
 
-  return str.trim().slice(0, 30) + '...';
-
+  console.log('Число :' + i + ' ' + ' Делители этого числа: 1 и ' + i);
 }
 
-getWord();
