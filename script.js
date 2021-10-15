@@ -12,4 +12,7 @@ for (let i = 0, len = week.length; i < len; i++) {
   div.innerHTML = html;
   document.body.appendChild(div);
 
-  }
+  } //вывела на страницу
+
+console.log(week.join(' , ')) //вывела в консоль
+console.log(week.join('\n')) //вывела в консоль
