@@ -28,26 +28,9 @@ const appData = {
       let name;
       let price = 0
 
-      const result = appData.reduce(function (total, current) {
-        return total + current;
-      }, 0);
-
-
       do {
         name = prompt('Какие типы нужно разработать?')
       } while (appData.isString(name))
-
-
-      for (let name of appData.screens) {
-        if (name === 'cложные') { continue; }
-        if (name === 'Сложные') { continue; }
-        if (name === 'простые') { continue; }
-        if (name === 'Простые') { continue; }
-        if (name === '') { break; }
-        return name;
-
-      }
-
 
       do {
         price = prompt('Сколько будет стоить данная работа?')
@@ -59,7 +42,9 @@ const appData = {
 
     for (let i = 0; i < 2; i++) {
       let name;
-      let price = 0
+      let price = 0;
+      let key;
+
 
       do {
         name = prompt('Какой дополнительный тип услуги нужен?')
@@ -70,19 +55,22 @@ const appData = {
         price = prompt('Сколько это будет стоить?')
       } while (!appData.isNumber(price))
 
-      appData.services[name] = +price
+      key = (+i + 1) + ": " + name;
+      appData.services[key] = +price;
     }
 
     appData.adaptive = confirm('Нужен ли адаптив на сайте?')
 
   },
   addPrices: function () {
-    for (let screen of appData.screens) {
-      appData.screenPrice += +screen.price
-    }
+    let initialValue = 0;
+    appData.screenPrice = appData.screens.reduce(function(sum, current) {
+      return sum + +current.price
+    }, initialValue);
+    
 
-    for (let key in appData.services) {
-      appData.allServicePrices += appData.services[key]
+    for (let service in appData.services) {
+      appData.allServicePrices += +appData.services[service];
     }
   },
   isNumber: function (num) {
@@ -115,7 +103,9 @@ const appData = {
     console.log(appData.fullPrice);
     console.log(appData.servicePercentPrice);
     console.log(appData.screens);
-    console.log(result)
+    console.log(appData.allServicePrices);
+    console.log(appData.screenPrice);
+    console.log(appData.services);
   }
 }
 
